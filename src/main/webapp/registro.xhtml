@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+<h:head>
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+</h:head>
+<h:body class="container mt-5">
+    <h2>Registro de Usuario</h2>
+    <h:form>
+        <div class="mb-3">
+            <label class="form-label">Nombre Completo:</label>
+            <h:inputText value="#{usuarioBean.usuario.nombreCompleto}" styleClass="form-control" required="true"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Correo Electrónico:</label>
+            <h:inputText value="#{usuarioBean.usuario.correoElectronico}" styleClass="form-control" required="true">
+                <f:validateRegex pattern="[^@ ]+@[^@ ]+\.[^@ ]+" />
+            </h:inputText>
+        </div>
+        <h:commandButton value="Registrar" action="#{usuarioBean.agregarUsuario}" styleClass="btn btn-primary"/>
+    </h:form>
+</h:body>
+</html>
